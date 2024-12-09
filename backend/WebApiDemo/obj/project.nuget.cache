@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VH9czIRGF3c=",
+  "dgSpecHash": "uEGkfcO1xso=",
   "success": true,
-  "projectFilePath": "C:\\Users\\QSS\\Desktop\\EMPS\\BACKEND\\WebApiDemo\\WebAppiDemo.csproj",
+  "projectFilePath": "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\WebApiDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\QSS\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\QSS\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

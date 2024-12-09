@@ -4717,11 +4717,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\QSS\\Desktop\\EMPS\\BACKEND\\WebApiDemo\\WebAppiDemo.csproj",
-      "projectName": "WebAppiDemo",
-      "projectPath": "C:\\Users\\QSS\\Desktop\\EMPS\\BACKEND\\WebApiDemo\\WebAppiDemo.csproj",
+      "projectUniqueName": "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\WebApiDemo.csproj",
+      "projectName": "WebApiDemo",
+      "projectPath": "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\WebApiDemo.csproj",
       "packagesPath": "C:\\Users\\QSS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\QSS\\Desktop\\EMPS\\BACKEND\\WebApiDemo\\obj\\",
+      "outputPath": "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nihit\\source\\repos\\EMPS\\WebApiDemo\\WebApiDemo.csproj": {}
+    "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\WebApiDemo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nihit\\source\\repos\\EMPS\\WebApiDemo\\WebApiDemo.csproj": {
+    "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\WebApiDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nihit\\source\\repos\\EMPS\\WebApiDemo\\WebApiDemo.csproj",
+        "projectUniqueName": "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\WebApiDemo.csproj",
         "projectName": "WebApiDemo",
-        "projectPath": "C:\\Users\\Nihit\\source\\repos\\EMPS\\WebApiDemo\\WebApiDemo.csproj",
-        "packagesPath": "C:\\Users\\Nihit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nihit\\source\\repos\\EMPS\\WebApiDemo\\obj\\",
+        "projectPath": "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\WebApiDemo.csproj",
+        "packagesPath": "C:\\Users\\QSS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\QSS\\Desktop\\Qss_EMPS\\backend\\WebApiDemo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nihit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\QSS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
