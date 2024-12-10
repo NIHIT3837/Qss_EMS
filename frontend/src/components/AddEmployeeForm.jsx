@@ -44,6 +44,7 @@ function AddEmployeeForm({ mode, employee, onSave, onClose }) {
             value={formData.firstName}
             onChange={handleChange}
             className="border px-4 py-2 w-full"
+            required
           />
         </div>
         <div>
@@ -54,6 +55,7 @@ function AddEmployeeForm({ mode, employee, onSave, onClose }) {
             value={formData.lastName}
             onChange={handleChange}
             className="border px-4 py-2 w-full"
+            required
           />
         </div>
         <div>
