@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Employees from "./components/Employees";
@@ -8,11 +8,13 @@ import Departments from "./components/Departments";
 import EmployeesPage from "./pages/EmployeesPage";
 
 function App() {
+
+  const[flag, setFlag]=useState(true);
   return (
     <Router>
       <div className="flex h-screen">
         {/* Sidebar */}
-        <Navbar />
+        <Navbar flag={flag}/>
         
         {/* Main Content */}
         <div className="flex-1 p-6">
@@ -24,7 +26,7 @@ function App() {
           <Routes>
             {/* Employees list */}
             <Route path="/" element={<Employees />} />
-            <Route path="/employees" element={<Employees />} />
+            <Route path="/employees" element={<Employees flag={flag}/>} />
 
 
             {/* Roles Route */}

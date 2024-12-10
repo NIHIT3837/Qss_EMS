@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import AddEmployeeForm from './AddEmployeeForm';
-
-
 import { useNavigate } from 'react-router-dom';
 
 function Employees() {
-
   const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
   const [employees, setEmployees] = useState([]);
+  const [filteredEmployees, setFilteredEmployees] = useState([]); // Store filtered employee list
   const [currentEmployee, setCurrentEmployee] = useState(null); // Store current employee for editing
   const [formMode, setFormMode] = useState('add'); // Tracks whether it's 'add' or 'edit'
+  const [searchQuery, setSearchQuery] = useState(''); // Store the search query
 
   // Fetch existing employees from the backend on component mount
   useEffect(() => {
@@ -18,13 +17,12 @@ function Employees() {
       .then((res) => res.json())
       .then((res) => {
         setEmployees(res);
+        setFilteredEmployees(res); // Initially show all employees
       })
       .catch((err) => console.error("Error fetching employees:", err));
   }, []);
 
   const handleAddClick = () => {
-    
- 
     setFormMode('add'); // Switch to add mode
     setCurrentEmployee(null); // Reset current employee
     setShowForm(true);  // Show the form
@@ -40,6 +38,20 @@ function Employees() {
   const handleCloseForm = () => {
     setShowForm(false);  // Close the form
     setCurrentEmployee(null); // Reset current employee data
+  };
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+    
+    // Filter employees based on search query
+    const filtered = employees.filter((employee) =>
+      employee.firstName.toLowerCase().includes(query) ||
+      employee.lastName.toLowerCase().includes(query) ||
+      employee.role?.toLowerCase().includes(query) ||
+      (employee.manager && employee.manager.toLowerCase().includes(query))
+    );
+    setFilteredEmployees(filtered);
   };
 
   // Handle saving a new employee to the backend
@@ -67,6 +79,7 @@ function Employees() {
 
       const savedEmployee = await response.json();
       setEmployees([...employees, savedEmployee]);
+      setFilteredEmployees([...filteredEmployees, savedEmployee]); // Update filtered list too
     } catch (error) {
       console.error("Error saving employee:", error.message);
     }
@@ -77,7 +90,6 @@ function Employees() {
   // Handle updating an employee
   const handleUpdateEmployee = async (updatedEmployee) => {
     const payload = {
-      
       FirstName: updatedEmployee.firstName,
       LastName: updatedEmployee.lastName,
       Role: updatedEmployee.role || null,
@@ -100,6 +112,7 @@ function Employees() {
 
       const updatedEmp = await response.json();
       setEmployees(employees.map((emp) => (emp.id === updatedEmp.id ? updatedEmp : emp)));
+      setFilteredEmployees(filteredEmployees.map((emp) => (emp.id === updatedEmp.id ? updatedEmp : emp))); // Update filtered list
       setShowForm(false);
       setCurrentEmployee(null);
     } catch (error) {
@@ -118,6 +131,7 @@ function Employees() {
       }
 
       setEmployees(employees.filter((emp) => emp.id !== id));
+      setFilteredEmployees(filteredEmployees.filter((emp) => emp.id !== id)); // Update filtered list
     } catch (error) {
       console.error("Error deleting employee:", error.message);
     }
@@ -130,6 +144,8 @@ function Employees() {
           type="text"
           placeholder="Search"
           className="border px-4 py-2 w-1/2"
+          value={searchQuery}  // Bind the search query value
+          onChange={handleSearchChange}  // Handle input change
         />
         <button
           onClick={handleAddClick}
@@ -140,7 +156,6 @@ function Employees() {
       </div>
 
       {showForm ? (
-        
         <AddEmployeeForm
           mode={formMode} // Pass the mode ('add' or 'edit')
           employee={currentEmployee} // Pass current employee data for editing
@@ -159,7 +174,7 @@ function Employees() {
             <div>Action</div>
           </div>
 
-          {employees.map((employee) => (
+          {filteredEmployees.map((employee) => (
             <div key={employee.id} className="grid grid-cols-8 gap-4 p-2 border-t border-gray-200">
               <div>{employee.id}</div>
               <div>{employee.firstName}</div>
