@@ -11,11 +11,21 @@
             this.httpClientFactory = httpClientFactory;
         }
 
-        public async Task<T?> InvokeGet<T>(string relativeUrl)
+        
+            public async Task<T?> InvokeGet<T>(string relativeUrl)
         {
-            var httpClient = httpClientFactory.CreateClient(apiName);
-
-            return await httpClient.GetFromJsonAsync<T>(relativeUrl);
+            try
+            {
+                var httpClient = httpClientFactory.CreateClient(apiName);
+                return await httpClient.GetFromJsonAsync<T>(relativeUrl);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                throw;
+            }
         }
+
     }
 }
+

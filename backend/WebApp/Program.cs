@@ -1,4 +1,4 @@
-
+ 
 
 using WebApp.Data;
 
@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Configure Http-Client
 builder.Services.AddHttpClient("ShirtsApi", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7270/api/");
+    client.BaseAddress = new Uri("http://localhost:5198/api/");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
