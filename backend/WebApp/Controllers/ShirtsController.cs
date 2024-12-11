@@ -22,7 +22,6 @@ namespace WebApp.Controllers
             return View(shirts);
         }
 
-
         public IActionResult CreateShirt()
         {
             return View();
@@ -30,8 +29,18 @@ namespace WebApp.Controllers
 
         [HttpPost]
 
-        public IActionResult CreateShirt(Shirt shirt)
+        public async Task<IActionResult> CreateShirt(Shirt shirt)
         {
+
+            if (ModelState.IsValid)
+            {
+                var response = await webApiExecuter.InvokePost("shirts", shirt);
+                if(response!=null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+
+            }
             return View(shirt);
         }
 

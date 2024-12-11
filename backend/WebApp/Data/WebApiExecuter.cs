@@ -1,4 +1,6 @@
-﻿namespace WebApp.Data
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace WebApp.Data
 {
     public class WebApiExecuter : IWebApiExecuter
     {
@@ -25,6 +27,20 @@
                 throw;
             }
         }
+
+
+        public async Task<T?> InvokePost<T>(string relativeUrl,T obj)
+        {
+            var httpclient = httpClientFactory.CreateClient(apiName);
+            var response = await httpclient.PostAsJsonAsync(relativeUrl,obj);
+
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<T>();
+
+        }
+
+
 
     }
 }
